@@ -143,4 +143,64 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+        // Certificate Modal Functionality
+        const certificateCards = document.querySelectorAll('.certificate-card');
+        const certificateModal = document.getElementById('certificateModal');
+        const certificateModalClose = document.querySelector('.certificate-modal-close');
+        
+        const certificatesData = {
+            '1': {
+                title: 'Web Development Certificate',
+                issuer: 'Your Organization',
+                date: 'Completed 2024'
+            },
+            '2': {
+                title: 'JavaScript Mastery',
+                issuer: 'Your Organization',
+                date: 'Completed 2024'
+            },
+            '3': {
+                title: 'React Developer Certificate',
+                issuer: 'Your Organization',
+                date: 'Completed 2024'
+            },
+            '4': {
+                title: 'Full Stack Development',
+                issuer: 'Your Organization',
+                date: 'Completed 2024'
+            }
+        };
+        
+        certificateCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const certId = this.getAttribute('data-cert');
+                const certData = certificatesData[certId];
+                const certImage = this.querySelector('.certificate-thumbnail').src;
+                
+                document.getElementById('certificateImage').src = certImage;
+                document.getElementById('certificateTitle').textContent = certData.title;
+                document.getElementById('certificateIssuer').textContent = certData.issuer;
+                document.getElementById('certificateDate').textContent = certData.date;
+                
+                certificateModal.classList.add('active');
+            });
+        });
+        
+        if (certificateModalClose) {
+            certificateModalClose.addEventListener('click', function() {
+                certificateModal.classList.remove('active');
+            });
+        }
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === certificateModal) {
+                certificateModal.classList.remove('active');
+            }
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && certificateModal) {
+                certificateModal.classList.remove('active');
+            }
+        });
 });
