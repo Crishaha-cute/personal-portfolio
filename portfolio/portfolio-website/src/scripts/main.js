@@ -5,30 +5,42 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to update theme
     function setTheme(isDark) {
+        const themeIcon = document.getElementById('theme-icon');
         if (isDark) {
             document.documentElement.classList.add('dark-theme');
             document.body.setAttribute('data-theme', 'dark');
-            themeToggle.checked = true;
+            if (themeIcon) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
         } else {
             document.documentElement.classList.remove('dark-theme');
             document.body.setAttribute('data-theme', 'light');
-            themeToggle.checked = false;
+            if (themeIcon) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
         }
     }
 
     // Set initial theme
+    let isDarkTheme = false;
     if (storedTheme) {
-        setTheme(storedTheme === 'dark');
+        isDarkTheme = storedTheme === 'dark';
+        setTheme(isDarkTheme);
     } else {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setTheme(prefersDark);
+        isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(isDarkTheme);
     }
     
     // Theme toggle functionality
-    themeToggle.addEventListener('change', function() {
-        setTheme(this.checked);
-        localStorage.setItem('theme', this.checked ? 'dark' : 'light');
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            isDarkTheme = !isDarkTheme;
+            setTheme(isDarkTheme);
+            localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+        });
+    }
     
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
@@ -68,8 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    
-    
     // Skill progress bars animation
     const progressBars = document.querySelectorAll('.progress');
     if (progressBars.length > 0) {
@@ -178,9 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const certImage = this.querySelector('.certificate-thumbnail').src;
                 
                 document.getElementById('certificateImage').src = certImage;
-                document.getElementById('certificateTitle').textContent = certData.title;
-                document.getElementById('certificateIssuer').textContent = certData.issuer;
-                document.getElementById('certificateDate').textContent = certData.date;
                 
                 certificateModal.classList.add('active');
             });

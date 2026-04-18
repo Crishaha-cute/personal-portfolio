@@ -4,125 +4,385 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Personal Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="src/image/web.png" type="image/x-icon">
 </head>
-<body>
+<body class="home-page">
     <header>
         <div class="container">
-            <nav>
-                <div class="logo">Personal Portfolio</div>
+            <nav aria-label="Main navigation">
+                <a href="#home" class="logo" aria-label="Return to homepage">CM</a>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
                 </ul>
-                <div class="theme-switch">
-                    <i class="fas fa-sun"></i>
-                    <label class="switch">
-                        <input type="checkbox" id="theme-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                    <i class="fas fa-moon"></i>
-                </div>
-                <div class="hamburger">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    
+                <div class="nav-controls">
+                    <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon" id="theme-icon" aria-hidden="true"></i>
+                    </button>
+                    <button class="hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </button>
                 </div>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="index-container">
-            <div class="index-image">
-                <div class="about-image animate-fade-in">
-                    <img src="src/image/home.jpg" alt="my Photo">
+    <main id="main-content">
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div class="index-container">
+                <div class="index-image">
+                    <div class="about-image animate-fade-in">
+                        <img src="src/image/home.jpg" alt="Portrait of Cris">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="animate-text">Hi, I'm <span class="highlight">CRIS</span></h1>
+                    <h2 class="typewriter">ASPIRING WEB DEVELOPER</h2>
+                    <!-- <p class="animate-text delay-2">I create beautiful, functional websites with passion and creativity.</p> -->
+                    <div class="cta-buttons animate-text delay-3">
+                        <a href="#projects" class="btn primary" aria-label="View my projects portfolio">View My Work</a>
+                        <a href="#about" class="btn secondary" aria-label="Read more about me">About Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills" aria-labelledby="skills-title">
+            <div class="container">
+                <h2 id="skills-title" class="section-title">My Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-card" tabindex="0">
+                        <i class="fas fa-code" aria-hidden="true"></i>
+                        <h3>Basic Web Development</h3>
+                        <div class="skill-level" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress" data-level="50%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" tabindex="0">
+                        <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                        <h3>Programming Fundamentals</h3>
+                        <div class="skill-level" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress" data-level="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" tabindex="0">
+                        <i class="fas fa-puzzle-piece" aria-hidden="true"></i>
+                        <h3>Problem Solving</h3>
+                        <div class="skill-level" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress" data-level="65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" tabindex="0">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                        <h3>Critical Thinking</h3>
+                        <div class="skill-level" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress" data-level="60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h1 class="page-title animate-text">ABOUT <span class="highlight">ME</span></h1>
+                <div class="about-container">
+                    <div class="about-image animate-fade-in">
+                        <img src="src/image/about.jpg" alt="my Photo">
+                    </div>
+                    <div class="about-content">
+                        <h2 class="about animate-text delay-1">WHO I AM</h2>
+                        <p class="animate-text delay-2">
+                            Hello! I am <strong>Cris E. Manzano</strong>, a student from <strong>North Eastern Mindanao State University</strong>.
+                            A Second Year <strong>Bachelor of Science in Computer Science</strong> student who is passionate about learning 
+                            tech and coding. I'm currently exploring web development and design, and I'm excited to see 
+                            where this journey takes me.
+                        </p>
+                        <div class="about-stats animate-text delay-4">
+                            <div class="stat">
+                                <span class="count">20</span>
+                                <span class="label">Years Old</span>
+                            </div>
+                            <div class="stat">
+                                <span class="count">50+</span>
+                                <span class="label">Cups of Coffee</span>
+                            </div>
+                            <div class="stat">
+                                <span class="count">42</span>
+                                <span class="label">Bugs Solved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="personal-interests">
+            <div class="container">
+                <h2 class="section-title">When I'm Not Coding</h2>
+                <div class="interests-container">
+                    <div class="interest-card">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>Gaming</h3>
+                        <p>I spent my free time playing online games!</p>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-tv"></i>
+                        <h3>Watching Movie</h3>
+                        <p>Historical and action movies are my favorites!</p>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-bed"></i>
+                        <h3>Sleeping</h3>
+                        <p>I Love Sleeping.</p>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-utensils"></i> <i class="fas fa-user"></i>
+                        <h3>Eating</h3>
+                        <p>I also love eating but i still don't gain weight :(</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="education">
+            <div class="container">
+                <h1 class="page-title animate-text">EDUCATION</h1>
+                
+                <div class="timeline">
+                    <div class="timeline-item right">
+                        <div class="timeline-content animate-slide-in">
+                            <div class="timeline-date">2018</div>
+                            <h3>Elementary</h3>
+                            <h4>Sumo-sumo Elementary School</h4>
+                            <p>Graduated With Honor</p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item left">
+                        <div class="timeline-content animate-slide-in">
+                            <div class="timeline-date">2022</div>
+                            <h3>Junior High School</h3>
+                            <h4>Clarence Ty Pimentel National HighSchool</h4>
+                            <p>Graduated With Honor</p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item right">
+                        <div class="timeline-content animate-slide-in">
+                            <div class="timeline-date">2023</div>
+                            <h3>Senior High School</h3>
+                            <h4>Clarence Ty Pimentel National High School</h4>
+                            <p>Academic Strand - General Academic Strand (GAS)</p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item left">
+                        <div class="timeline-content animate-slide-in">
+                            <div class="timeline-date">2024</div>
+                            <h3>College</h3>
+                            <h4>North Eastern Mindanao State University Main Campus.</h4>
+                            <p>Bachelor of Science in Computer Science Currently a Second year student.</p>
+                            <div class="timeline-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education">
+            <div class="container">
+                <h2 class="section-title">My Certificates</h2>
+                <div class="certificates-container">
+                    <div class="certificate-card" data-cert="1">
+                        <div class="certificate-image-wrapper">
+                            <img src="src/image/cert1.png" alt="Certificate 1" class="certificate-thumbnail">
+                            <div class="certificate-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <p>Click to View</p>
+                            </div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Hour Of Code Certificate</h3>
+                            <p class="certificate-issuer">Asean Foundation</p>
+                            <p class="certificate-date">2025</p>
+                        </div>
+                    </div>
+        
+                    <div class="certificate-card" data-cert="2">
+                        <div class="certificate-image-wrapper">
+                            <img src="src/image/cert2.png" alt="Certificate 2" class="certificate-thumbnail">
+                            <div class="certificate-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <p>Click to View</p>
+                            </div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>CITE- Techno Fair</h3>
+                            <p class="certificate-issuer">CITE </p>
+                            <p class="certificate-date">2024</p>
+                        </div>
+                    </div>
+        
+                    <div class="certificate-card" data-cert="3">
+                        <div class="certificate-image-wrapper">
+                            <img src="src/image/cert3.jpg" alt="Certificate 3" class="certificate-thumbnail">
+                            <div class="certificate-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <p>Click to View</p>
+                            </div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Hour Of Code Certificate</h3>
+                            <p class="certificate-issuer">Code.org</p>
+                            <p class="certificate-date">2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h1 class="page-title animate-text">My Projects</h1>
+                
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="design">UI/UX Design</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
                 </div>
                 
-            </div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="animate-text">Hi, I'm <span class="highlight">CRIS</span></h1>
-                <h2 class="animate-text delay-1">ASPIRING WEB DEVELOPER</h2>
-                <!-- <p class="animate-text delay-2">I create beautiful, functional websites with passion and creativity.</p> -->
-                <div class="cta-buttons animate-text delay-3">
-                    <a href="projects.html" class="btn primary">View My Work</a>
-                    <a href="about.html" class="btn secondary">About Me</a>
-                    
+                <div class="projects-grid">
+                    <!-- Coming Soon Card 1 -->
+                    <div class="project-card coming-soon" data-category="web">
+                        <div class="project-image">
+                            <i class="fas fa-hourglass-half"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <span class="coming-soon-badge">Coming Soon</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Project 1</h3>
+                            <p>Exciting project in development. Stay tuned!</p>
+                            <div class="project-tags">
+                                <span class="tag">Web</span>
+                                <span class="tag">Development</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Coming Soon Card 2 -->
+                    <div class="project-card coming-soon" data-category="design">
+                        <div class="project-image">
+                            <i class="fas fa-hourglass-half"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <span class="coming-soon-badge">Coming Soon</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Project 2</h3>
+                            <p>New design project under development.</p>
+                            <div class="project-tags">
+                                <span class="tag">UI/UX</span>
+                                <span class="tag">Design</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Coming Soon Card 3 -->
+                    <div class="project-card coming-soon" data-category="mobile">
+                        <div class="project-image">
+                            <i class="fas fa-hourglass-half"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <span class="coming-soon-badge">Coming Soon</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Project 3</h3>
+                            <p>Mobile app in the works. Check back later!</p>
+                            <div class="project-tags">
+                                <span class="tag">Mobile</span>
+                                <span class="tag">Flet</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="skills">
-        <div class="container">
-            <h2 class="section-title">My Skills</h2>
-            <div class="skills-container">
-                <div class="skill-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Basic Web Development</h3>
-                    <div class="skill-level">
-                        <div class="progress" data-level="50%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Programming Fundamentals</h3>
-                    <div class="skill-level">
-                        <div class="progress" data-level="75%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-puzzle-piece"></i>
-                    <h3>Problem  Solving</h3>
-                    <div class="skill-level">
-                        <div class="progress" data-level="65%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-brain"></i>
-                    <h3>Critical Thinking</h3>
-                    <div class="skill-level">
-                        <div class="progress" data-level="60%"></div>
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" class="section-title">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto:manzanocris042@gmail.com" aria-label="Email Cris at manzanocris042@gmail.com">manzanocris042@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <a href="tel:+639638222990" aria-label="Call Cris at +63 9638222990">+63 9638222990</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <p>Bayabas, Surigao Del Sur</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section class="contact">
+    <!-- Certificate Modal Popup -->
+    <div id="certificateModal" class="certificate-modal">
+        <span class="certificate-modal-close">&times;</span>
+        <div class="certificate-modal-container">
+            <img class="certificate-modal-content" id="certificateImage" src="" alt="Certificate">
+        </div>
+    </div>
+
+    <footer>
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:manzanocris042@gmail.com">manzanocris042@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+639638222990">+63 9638222990</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Bayabas, Surigao Del Sur</p>
-                    </div>
-                </div>
+            <div class="footer-content">
                 <div class="social-links">
-                    <a href="https://github.com/Crishaha-cute" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://facebook.com/gl.manzano" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.tiktok.com/@cris_manzano06" class="social-icon" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/crismnzno/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/Crishaha-cute" class="social-icon" target="_blank" aria-label="GitHub Profile" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://facebook.com/gl.manzano" class="social-icon" target="_blank" aria-label="Facebook Profile" rel="noopener noreferrer"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://www.tiktok.com/@cris_manzano06" class="social-icon" target="_blank" aria-label="TikTok Profile" rel="noopener noreferrer"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/crismnzno/" class="social-icon" target="_blank" aria-label="Instagram Profile" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                 </div>
+                <p class="copyright">&copy; 2024 Cris Manzano. All Rights Reserved.</p>
             </div>
         </div>
-    </section>
+    </footer>
 
     <script src="./src/scripts/main.js" defer></script>
 </body>
